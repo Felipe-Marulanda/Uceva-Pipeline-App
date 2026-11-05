@@ -3,8 +3,7 @@ name: Deploy Angular to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
-
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -21,38 +20,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Descargar el código
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
 
-      # 3. Configurar GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # 4. Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # 5. Ejecutar pruebas unitarias
       - name: Run Unit Tests
         run: npm test
 
-      # 6. Generar build de Angular
       - name: Build Angular
-        run: npm run build -- --base-href "/${{ github.event.repository.name }}/"
+        run: npm run build -- --base-href /Uceva-Pipeline-App/
 
-      # 7. Configure SPA fallback
-      - name: Configure GitHub Pages fallback
-        run: cp ./dist/pipeline-app/browser/index.html ./dist/pipeline-app/browser/404.html
-
-      # 7. Subir artefacto generado
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

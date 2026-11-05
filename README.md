@@ -1,59 +1,74 @@
-# PipelineApp
+# Uceva Pipeline App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.4.
+Primera aplicación del laboratorio de Pipelines de Arquitectura de Software (UCEVA). Está hecha con Angular, tiene tres vistas y se publica automáticamente en GitHub Pages con un workflow de GitHub Actions.
 
-## Development server
+Página publicada: [https://felipe-marulanda.github.io/Uceva-Pipeline-App/](https://felipe-marulanda.github.io/Uceva-Pipeline-App/)
 
-To start a local development server, run:
+Integrantes: Santiago Santacruz Cuellar y Juan Felipe Castro Marulanda.
 
-```bash
-ng serve
+## Qué tiene la aplicación
+
+Tres páginas navegables desde un menú: Inicio, Acerca de y Contacto. Cada una se carga con `loadComponent`, así que Angular descarga su código solo cuando se visita.
+
+Las rutas son `/home`, `/about` y `/contact`. La ruta vacía y cualquier ruta desconocida redirigen a `/home`.
+
+## Estrategia de enrutamiento
+
+Esta aplicación usa Hash Location Strategy. Se configura con `provideRouter(routes, withHashLocation())` en `src/app/app.config.ts`, y por eso las direcciones llevan el carácter `#`, por ejemplo `/#/about`.
+
+La segunda aplicación del laboratorio ([Uceva-Pipeline-App-Path](https://github.com/SantiagoCruz09/Uceva-Pipeline-App-Path)) hace lo contrario: usa Path Location Strategy, que es la que Angular trae por defecto, y sus direcciones se ven como `/about`.
+
+## Por qué no hace falta un 404.html
+
+GitHub Pages es un hosting estático: solo entrega archivos que existen en el sitio. Con Hash Location, todo lo que va después del `#` se queda en el navegador y nunca se envía al servidor. Por eso, aunque se abra `/#/about` directamente o se recargue la página con F5, el servidor siempre recibe la petición de `index.html` y Angular se encarga de mostrar la vista correcta.
+
+Con Path Location sí haría falta copiar `index.html` como `404.html`, porque una ruta como `/about` no es un archivo y Pages respondería con un 404. Esa es justo la diferencia entre las dos aplicaciones del laboratorio.
+
+## Build con base-href
+
+La página no se sirve desde la raíz del dominio sino desde `/Uceva-Pipeline-App/`. Por eso el build en el pipeline se ejecuta con:
+
+```
+npm run build -- --base-href /Uceva-Pipeline-App/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Sin esa opción, el navegador buscaría los archivos JavaScript y el favicon en la raíz de `felipe-marulanda.github.io` y no los encontraría.
 
-## Code scaffolding
+## Pipeline
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+El archivo `.github/workflows/` define el pipeline, que se ejecuta en cada push a `main`. Tiene dos jobs:
 
-```bash
-ng generate component component-name
+1. `build`: descarga el código, instala Node, ejecuta `npm ci`, corre las pruebas con `npm test`, construye la aplicación y sube el resultado como artefacto.
+2. `deploy`: publica ese artefacto en GitHub Pages.
+
+Si las pruebas o el build fallan, el despliegue no se ejecuta.
+
+Para que funcione hay que activar Pages en el repositorio: Settings, Pages, Source, GitHub Actions.
+
+## Cómo correrla en local
+
+```
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Queda disponible en [http://localhost:4200/](http://localhost:4200/) y se recarga sola al modificar el código. Para generar el build y correr las pruebas:
 
-```bash
-ng generate --help
+```
+npm run build
+npm test
 ```
 
-## Building
+La salida del build queda en `dist/pipeline-app/browser`. Las pruebas unitarias usan [Vitest](https://vitest.dev/).
 
-To build the project run:
+## Tecnologías
 
-```bash
-ng build
-```
+- Angular 22 (generado con Angular CLI 22.2.4)
+- TypeScript
+- Vitest para pruebas unitarias
+- Prettier para el formato del código
+- GitHub Actions y GitHub Pages para el despliegue
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Mensajes de commit
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Usamos Conventional Commits (`feat:`, `fix:`, `docs:`, `ci:`, `chore:`) para que el historial se lea fácil.

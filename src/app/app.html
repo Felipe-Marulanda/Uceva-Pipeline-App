@@ -1,12 +1,49 @@
-<header>
-  <h1>Uceva Pipeline App</h1>
-  <nav aria-label="Navegación principal">
-    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-    <a routerLink="/about" routerLinkActive="active">Acerca de</a>
-    <a routerLink="/contact" routerLinkActive="active">Contacto</a>
-  </nav>
-</header>
+<div class="app-container">
 
-<main>
-  <router-outlet />
-</main>
+  <!-- Barra de navegación -->
+  <header class="navbar">
+
+    <a routerLink="/home" class="brand">
+      <div class="brand-icon">UP</div>
+
+      <div>
+        <h2>Uceva Pipeline</h2>
+        <span>Laboratorio CI/CD</span>
+      </div>
+    </a>
+
+    <nav>
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Inicio
+      </a>
+
+      <a
+        routerLink="/about"
+        routerLinkActive="active">
+        Acerca de
+      </a>
+
+      <a
+        routerLink="/contact"
+        routerLinkActive="active">
+        Contacto
+      </a>
+    </nav>
+
+  </header>
+
+  <!-- Aquí Angular carga cada página -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <span>Uceva Pipeline App</span>
+    <span>Angular · GitHub · CI/CD</span>
+  </footer>
+
+</div>

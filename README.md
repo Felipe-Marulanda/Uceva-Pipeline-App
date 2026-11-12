@@ -2,7 +2,7 @@
 
 Primera aplicación del laboratorio de Pipelines de Arquitectura de Software (UCEVA). Está hecha con Angular, tiene tres vistas y se publica automáticamente en GitHub Pages con un workflow de GitHub Actions.
 
-Página publicada: [https://felipe-marulanda.github.io/Uceva-Pipeline-App/](https://felipe-marulanda.github.io/Uceva-Pipeline-App/)
+URL de GitHub Pages configurada: [https://felipe-marulanda.github.io/Uceva-Pipeline-App/](https://felipe-marulanda.github.io/Uceva-Pipeline-App/)
 
 Integrantes: Santiago Santacruz Cuellar y Juan Felipe Castro Marulanda.
 
@@ -40,10 +40,11 @@ El archivo `.github/workflows/` define el pipeline, que se ejecuta en cada push 
 
 1. `build`: descarga el código, instala Node, ejecuta `npm ci`, corre las pruebas con `npm test`, construye la aplicación y sube el resultado como artefacto.
 2. `deploy`: publica ese artefacto en GitHub Pages.
+3. `verify`: reintenta una petición HTTP hasta confirmar que la URL publicada responde correctamente.
 
 Si las pruebas o el build fallan, el despliegue no se ejecuta.
 
-Para que funcione hay que activar Pages en el repositorio: Settings, Pages, Source, GitHub Actions.
+Para que funcione hay que activar Pages en el repositorio: Settings, Pages, Source, GitHub Actions. La URL queda disponible después de que termine correctamente el workflow.
 
 ## Cómo correrla en local
 

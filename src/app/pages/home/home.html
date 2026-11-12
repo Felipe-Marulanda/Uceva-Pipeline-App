@@ -1,4 +1,110 @@
-<section>
-  <h2>Inicio</h2>
-  <p>Bienvenido a la aplicación del laboratorio de CI/CD.</p>
-</section>
+<div class="home-page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> LABORATORIO DE CI/CD · UCEVA</p>
+      <h1 id="hero-title">Del código a producción, <em>en un flujo continuo.</em></h1>
+      <p class="hero-description">
+        Una aplicación para explorar cómo las buenas prácticas de integración y entrega continua
+        convierten cada cambio en una versión lista para compartir.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" routerLink="/about">
+          Conoce el proyecto <span aria-hidden="true">→</span>
+        </a>
+        <a
+          class="button button-secondary"
+          href="https://github.com/Felipe-Marulanda/Uceva-Pipeline-App"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explorar código <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="quick-facts" aria-label="Datos del proyecto">
+        <div><strong>03</strong><span>vistas</span></div>
+        <span class="fact-divider" aria-hidden="true"></span>
+        <div><strong>02</strong><span>integrantes</span></div>
+        <span class="fact-divider" aria-hidden="true"></span>
+        <div><strong>∞</strong><span>posibilidades</span></div>
+      </div>
+    </div>
+
+    <div class="workflow-card" aria-label="Etapas del flujo de entrega">
+      <div class="workflow-top">
+        <div>
+          <span class="workflow-label">FLUJO DE ENTREGA</span>
+          <h2>De cambio a publicación</h2>
+        </div>
+        <span class="workflow-mark" aria-hidden="true">↗</span>
+      </div>
+
+      <div class="workflow-branch"><span></span> main <code>push</code></div>
+
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <span class="step-icon step-icon-check" aria-hidden="true">✓</span>
+          <span><strong>Integrar</strong><small>Revisar cada cambio</small></span>
+          <span class="step-state">01</span>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="workflow-step">
+          <span class="step-icon step-icon-build" aria-hidden="true">⌘</span>
+          <span><strong>Construir</strong><small>Probar y generar</small></span>
+          <span class="step-state">02</span>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="workflow-step workflow-step-last">
+          <span class="step-icon step-icon-deploy" aria-hidden="true">↗</span>
+          <span><strong>Publicar</strong><small>Compartir en Pages</small></span>
+          <span class="step-state">03</span>
+        </div>
+      </div>
+
+      <div class="workflow-bottom">
+        <span class="workflow-pulse"></span>
+        Pipeline automatizado con GitHub Actions
+      </div>
+    </div>
+  </section>
+
+  <section class="stages-section" aria-labelledby="stages-title">
+    <div class="section-intro">
+      <p class="eyebrow">EL CICLO</p>
+      <h2 id="stages-title">Pequeños pasos. Entregas confiables.</h2>
+      <p>El proceso se divide en etapas claras para que cada publicación sea repetible.</p>
+    </div>
+
+    <div class="stage-grid">
+      <article class="stage-card">
+        <span class="stage-number">01 / INTEGRACIÓN</span>
+        <div class="stage-symbol" aria-hidden="true">⌘</div>
+        <h3>Cambios bajo control</h3>
+        <p>El código vive en Git y cada actualización inicia el flujo desde una fuente común.</p>
+      </article>
+      <article class="stage-card stage-card-featured">
+        <span class="stage-number">02 / VALIDACIÓN</span>
+        <div class="stage-symbol" aria-hidden="true">✓</div>
+        <h3>Calidad antes de publicar</h3>
+        <p>Pruebas y compilación ayudan a detectar problemas antes de que lleguen al sitio.</p>
+      </article>
+      <article class="stage-card">
+        <span class="stage-number">03 / ENTREGA</span>
+        <div class="stage-symbol" aria-hidden="true">↗</div>
+        <h3>Disponible para todos</h3>
+        <p>El resultado se despliega en GitHub Pages y una verificación comprueba su disponibilidad.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="team-strip" aria-label="Equipo del proyecto">
+    <div>
+      <p class="eyebrow">HECHO EN EQUIPO</p>
+      <h2>Aprender, construir y compartir.</h2>
+    </div>
+    <div class="team-avatars" aria-hidden="true">
+      <span>SS</span>
+      <span>JC</span>
+    </div>
+    <a routerLink="/contact" class="team-link">Conoce al equipo <span aria-hidden="true">→</span></a>
+  </section>
+</div>

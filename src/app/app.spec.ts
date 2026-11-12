@@ -23,7 +23,7 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.brand h2')?.textContent).toContain('Uceva Pipeline');
+    expect(compiled.querySelector('.brand-name')?.textContent).toContain('pipelinelab');
     expect(compiled.querySelectorAll('nav a')).toHaveLength(3);
   });
 });

@@ -1,3 +1,181 @@
-section {
-  padding: 2rem;
+:host {
+  display: block;
+}
+
+.contact-page {
+  width: min(900px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 72px 0 95px;
+}
+
+.eyebrow,
+.person-role {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.contact-heading {
+  max-width: 700px;
+}
+
+.contact-heading h1 {
+  margin: 17px 0 15px;
+  color: var(--ink);
+  font-size: clamp(42px, 6vw, 68px);
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+}
+
+.contact-heading h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.contact-heading > p:last-child {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+  margin-top: 45px;
+}
+
+.person-card {
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.person-avatar {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.person-avatar-one {
+  background: #e9c7aa;
+}
+
+.person-avatar-two {
+  background: #c4d2bd;
+}
+
+.person-role {
+  font-size: 8px;
+}
+
+.person-card h2 {
+  margin: 7px 0 4px;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: -0.025em;
+}
+
+.person-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.contact-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 22px;
+  border-radius: 9px;
+  background: var(--ink);
+  color: white;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.contact-cta:hover {
+  background: #27393b;
+}
+
+.cta-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ff9a7e;
+  font-size: 19px;
+}
+
+.cta-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.cta-copy small {
+  color: #b1c0b6;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.cta-copy strong {
+  font-size: 13px;
+}
+
+.cta-arrow {
+  margin-left: auto;
+  color: #ff9a7e;
+  font-size: 20px;
+}
+
+.contact-note {
+  margin: 25px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.contact-note span {
+  padding: 0 5px;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .contact-page {
+    width: min(100% - 36px, 560px);
+    padding: 52px 0 65px;
+  }
+
+  .people-grid {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .person-card {
+    padding: 16px;
+  }
+
+  .person-card h2 {
+    font-size: 12px;
+  }
 }

@@ -1,49 +1,41 @@
-<div class="app-container">
-
-  <!-- Barra de navegación -->
-  <header class="navbar">
-
-    <a routerLink="/home" class="brand">
-      <div class="brand-icon">UP</div>
-
-      <div>
-        <h2>Uceva Pipeline</h2>
-        <span>Laboratorio CI/CD</span>
-      </div>
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand" routerLink="/home" aria-label="Pipeline Lab, inicio">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span class="brand-copy">
+        <span class="brand-name">pipeline<span>lab</span></span>
+        <span class="brand-caption">UCEVA · Arquitectura de software</span>
+      </span>
     </a>
 
-    <nav>
-      <a
-        routerLink="/home"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">
-        Inicio
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>01</span> Inicio
       </a>
-
-      <a
-        routerLink="/about"
-        routerLinkActive="active">
-        Acerca de
+      <a routerLink="/about" routerLinkActive="active">
+        <span>02</span> Acerca de
       </a>
-
-      <a
-        routerLink="/contact"
-        routerLinkActive="active">
-        Contacto
+      <a routerLink="/contact" routerLinkActive="active">
+        <span>03</span> Contacto
       </a>
     </nav>
 
+    <a
+      class="header-link"
+      href="https://github.com/Felipe-Marulanda/Uceva-Pipeline-App"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Ver repositorio <span aria-hidden="true">↗</span>
+    </a>
   </header>
 
-  <!-- Aquí Angular carga cada página -->
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <router-outlet></router-outlet>
   </main>
 
-  <!-- Pie de página -->
-  <footer class="footer">
-    <span>Uceva Pipeline App</span>
-    <span>Angular · GitHub · CI/CD</span>
+  <footer class="site-footer">
+    <span>Un laboratorio para aprender haciendo.</span>
+    <span>Angular <i aria-hidden="true">·</i> GitHub Actions <i aria-hidden="true">·</i> Pages</span>
   </footer>
-
 </div>

@@ -1,1 +1,0 @@
-import{i as mu,n as Tg,r as gu,t as Fg}from"./main-JTO3AFAX.js";var m=class a{static ɵfac=function(e){return new(e||a)};static ɵcmp=Tg({type:a,selectors:[[`app-home`]],decls:5,vars:0,template:function(e,c){e&1&&(gu(0,`section`)(1,`h2`),Fg(2,`Inicio`),mu(),gu(3,`p`),Fg(4,`Bienvenido a la aplicación del laboratorio de CI/CD.`),mu()())},encapsulation:2})};export{m as Home};
